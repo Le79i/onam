@@ -1,397 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>2026-27 ONAM PICTURES</title>
-  <style>
-    :root {
-      --bg-base: #faf6ee;
-      --grid-line: rgba(201, 168, 105, 0.22);
-      --card-bg: rgba(253, 250, 243, 0.94);
-      --text-main: #2e261d;
-      --text-muted: #8c7e6c;
-      --border-color: #e4d8c3;
-      --gold-accent: #c49a45;
-      --gold-glow: rgba(196, 154, 69, 0.25);
-      --marigold: #b85d19;
-      --marigold-hover: #9c4c10;
-      --error-color: #a3382c;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>2026-27 Onam Pictures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-a: #f4efe1;
+    --bg-b: #e9e6d6;
+    --card-bg: rgba(252, 250, 244, 0.92);
+    --text-main: #23301f;
+    --text-muted: #746f5c;
+    --border-color: #d9d2b8;
+    --green: #45613f;
+    --green-deep: #2d4029;
+    --gold: #ab8a4e;
+    --gold-soft: rgba(171, 138, 78, 0.22);
+    --error: #97392c;
+    --radius: 14px;
+    --safe-t: env(safe-area-inset-top, 0px);
+    --safe-b: env(safe-area-inset-bottom, 0px);
+    --safe-l: env(safe-area-inset-left, 0px);
+    --safe-r: env(safe-area-inset-right, 0px);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    width: 100%;
+    min-height: 100%;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-main);
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(255,255,255,0.55), transparent 55%),
+      radial-gradient(ellipse at 100% 100%, rgba(69, 97, 63, 0.10), transparent 55%),
+      linear-gradient(160deg, var(--bg-a), var(--bg-b));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(28px + var(--safe-t)) calc(18px + var(--safe-r)) calc(28px + var(--safe-b)) calc(18px + var(--safe-l));
+  }
+
+  /* decorative leaf motif, quiet, single accent */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle, var(--gold) 1.4px, transparent 1.4px);
+    background-size: 34px 34px;
+    opacity: 0.06;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 400px;
+    opacity: 0;
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    padding: 40px 30px 32px;
+    background: var(--card-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 45px rgba(45, 64, 41, 0.10);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.3s ease;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(171, 138, 78, 0.35);
+    border-radius: 9px;
+    pointer-events: none;
+  }
+
+  /* one soft light sweep across the gold border on load */
+  .card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255, 253, 244, 0.55), transparent);
+    transform: rotate(18deg);
+    animation: sweep 1.4s 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    pointer-events: none;
+  }
+
+  @keyframes sweep {
+    from { left: -60%; }
+    to   { left: 130%; }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+      box-shadow: 0 28px 60px rgba(45, 64, 41, 0.18), 0 0 26px var(--gold-soft);
     }
+  }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Georgia", serif;
+  #loginSection .header,
+  #loginSection .field,
+  #loginSection .btn {
+    opacity: 0;
+    animation: revealUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  #loginSection .header { animation-delay: 0.08s; }
+  #loginSection .field:nth-of-type(1) { animation-delay: 0.2s; }
+  #loginSection .field:nth-of-type(2) { animation-delay: 0.3s; }
+  #loginSection .btn { animation-delay: 0.4s; }
+
+  @keyframes revealUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 26px;
+  }
+
+  .glyph {
+    width: 34px;
+    height: 34px;
+    margin: 0 auto 14px;
+    color: var(--gold);
+  }
+
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(1.5rem, 5vw, 1.85rem);
+    letter-spacing: 0.02em;
+    color: var(--green-deep);
+    line-height: 1.2;
+  }
+
+  .header p {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+  }
+
+  .field {
+    margin-bottom: 16px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .field input {
+    width: 100%;
+    font-size: 16px;
+    padding: 13px 14px;
+    font-family: 'Manrope', sans-serif;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .field input:focus {
+    background: #fff;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px var(--gold-soft);
+  }
+
+  .btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    background: linear-gradient(135deg, var(--green), var(--green-deep));
+    color: #f6f2e6;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(45, 64, 41, 0.22);
+    transition: transform 0.2s cubic-bezier(0.2,0,0.2,1), box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 10px rgba(45, 64, 41, 0.2);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover {
+      background: linear-gradient(135deg, var(--green-deep), #1f2e1c);
+      box-shadow: 0 10px 26px rgba(45, 64, 41, 0.3);
+      letter-spacing: 0.07em;
     }
-
-    html, body {
-      width: 100%;
-      min-height: 100vh;
-      min-height: 100dvh;
-      overflow-x: hidden;
+    .field input:hover {
+      border-color: var(--gold);
     }
-
-    body {
-      background-color: var(--bg-base);
-      background-image: 
-        radial-gradient(circle at 50% 50%, rgba(255, 248, 220, 0.8), transparent 75%),
-        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-      background-size: 100% 100%, 32px 32px, 32px 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-main);
-      padding: 24px 16px;
+    .field:hover label {
+      color: var(--gold);
+      transform: translateX(2px);
     }
-
-    .wrapper {
-      width: 100%;
-      max-width: 410px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      opacity: 0;
-      animation: fadeIn 0.8s ease-out forwards;
-      margin: auto 0;
+    .card:hover .glyph {
+      transform: translateY(-3px);
+      color: var(--green);
     }
+  }
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
+  .field label {
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
 
-    .container {
-      position: relative;
-      width: 100%;
-      padding: 38px 28px;
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      box-shadow: 0 14px 35px rgba(110, 85, 45, 0.08);
-      transform: translateY(0);
-      transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1), 
-                  box-shadow 0.3s cubic-bezier(0.2, 0, 0.2, 1), 
-                  border-color 0.3s ease;
-    }
+  .glyph {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
+  }
 
-    .header {
-      margin-bottom: 24px;
-      text-align: center;
-      cursor: default;
-    }
+  .status {
+    margin-top: 13px;
+    font-size: 0.8rem;
+    text-align: center;
+    min-height: 1.1em;
+  }
 
-    .header-icon {
-      display: inline-block;
-      width: 32px;
-      height: 32px;
-      margin-bottom: 10px;
-      color: var(--gold-accent);
-      transform: translateY(0);
-      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
-    }
+  .status.error {
+    color: var(--error);
+  }
 
-    .header h1 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-main);
-      transform: translateY(0);
-      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
-      word-break: break-word;
-    }
+  .success {
+    display: none;
+    text-align: center;
+  }
 
-    /* Desktop Hover Interactions (Lift without rotation) */
-    @media (hover: hover) and (pointer: fine) {
-      .container:hover {
-        transform: translateY(-6px);
-        border-color: var(--gold-accent);
-        box-shadow: 0 24px 50px rgba(110, 85, 45, 0.16), 0 0 24px var(--gold-glow);
-      }
+  .success.active {
+    display: block;
+    animation: rise 0.5s ease forwards;
+  }
 
-      .container:hover .header-icon {
-        transform: translateY(-4px);
-        color: var(--marigold);
-      }
+  .success .glyph {
+    color: var(--green);
+  }
 
-      .container:hover .header h1 {
-        transform: translateY(-2px);
-        color: var(--marigold);
-      }
+  .success h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--green-deep);
+    margin-bottom: 6px;
+  }
 
-      .form-group:hover label {
-        color: var(--marigold);
-        transform: translateX(2px);
-      }
+  .success p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
 
-      input:hover {
-        background: #ffffff;
-        border-color: var(--gold-accent);
-        box-shadow: 0 4px 12px rgba(196, 154, 69, 0.12);
-        transform: translateY(-2px);
-      }
+  .footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
 
-      .btn:hover {
-        background: linear-gradient(135deg, var(--marigold-hover), #8a3f0b);
-        transform: translateY(-3px);
-        box-shadow: 0 8px 22px rgba(184, 93, 25, 0.4);
-        letter-spacing: 0.16em;
-      }
+  .shake { animation: shakeCard 0.35s ease-in-out; }
+  @keyframes shakeCard {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+  }
 
-      .copyright:hover {
-        opacity: 1;
-        color: var(--marigold);
-        letter-spacing: 0.2em;
-        transform: translateY(-1px);
-      }
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-      position: relative;
-    }
-
-    label {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-      transition: color 0.25s ease, transform 0.25s ease;
-    }
-
-    input {
-      width: 100%;
-      font-size: 16px;
-      padding: 12px 14px;
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-      color: var(--text-main);
-      outline: none;
-      -webkit-appearance: none;
-      appearance: none;
-      transition: all 0.25s ease;
-    }
-
-    input:focus {
-      background: #ffffff;
-      border-color: var(--marigold);
-      box-shadow: 0 0 0 3px var(--gold-glow);
-    }
-
-    .btn {
-      width: 100%;
-      padding: 14px;
-      margin-top: 6px;
-      background: linear-gradient(135deg, var(--marigold), #a64f12);
-      color: #faf6ee;
-      border: none;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(184, 93, 25, 0.25);
-      transition: all 0.25s cubic-bezier(0.2, 0, 0.2, 1);
-    }
-
-    .btn:active {
-      transform: scale(0.98);
-      box-shadow: 0 2px 6px rgba(184, 93, 25, 0.2);
-    }
-
-    .message {
-      margin-top: 14px;
-      font-size: 0.8rem;
-      text-align: center;
-      min-height: 1.2em;
-      letter-spacing: 0.03em;
-    }
-
-    .message.error {
-      color: var(--error-color);
-    }
-
-    .success-view {
-      display: none;
-      text-align: center;
-      opacity: 0;
-      transform: scale(0.96);
-      transition: all 0.4s ease;
-    }
-
-    .success-view.active {
-      display: block;
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .success-view h2 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--marigold);
-      margin-bottom: 8px;
-      letter-spacing: 0.08em;
-    }
-
-    .success-view p {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .copyright {
-      margin-top: 24px;
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      text-transform: lowercase;
-      color: var(--text-muted);
-      opacity: 0.75;
-      user-select: none;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-
-    .shake {
-      animation: shakeCard 0.35s ease-in-out;
-    }
-
-    @keyframes shakeCard {
-      0%, 100% { transform: translateX(0); }
-      20%, 60% { transform: translateX(-5px); }
-      40%, 80% { transform: translateX(5px); }
-    }
-  </style>
+  @media (max-width: 360px) {
+    .card { padding: 34px 22px 28px; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Ensure audio.mp3 is uploaded to your GitHub repository in the same folder -->
-  <audio id="bgAudio" src="audio.mp3" preload="auto"></audio>
+<!-- audio.mp3 must live alongside this file in the same GitHub folder -->
+<audio id="bgAudio" src="audio.mp3" preload="auto" loop playsinline webkit-playsinline autoplay></audio>
 
-  <div class="wrapper">
-    <div class="container" id="loginContainer">
-      <div id="loginSection">
-        <div class="header">
-          <div class="header-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"></path>
-              <path d="M12 18v4"></path>
-              <path d="M8 22h8"></path>
-            </svg>
-          </div>
-          <h1>2026-27 ONAM PICTURES</h1>
-        </div>
+<div class="wrapper">
+  <div class="card" id="loginCard">
 
-        <form id="authForm" autocomplete="off">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" required spellcheck="false" autocomplete="off" />
-          </div>
-
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" required autocomplete="off" />
-          </div>
-
-          <button type="submit" class="btn">Unlock Gallery</button>
-          <div class="message" id="statusMessage"></div>
-        </form>
+    <div id="loginSection">
+      <div class="header">
+        <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"></path>
+          <path d="M12 18v4"></path>
+          <path d="M8 22h8"></path>
+        </svg>
+        <h1>2026&ndash;27 Onam Pictures</h1>
+        <p>Enter your details to view the album</p>
       </div>
 
-      <div class="success-view" id="successSection">
-        <div class="header-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="m9 12 2 2 4-4"></path>
-          </svg>
+      <form id="authForm" autocomplete="off">
+        <div class="field">
+          <label for="username">Username</label>
+          <input type="text" id="username" required spellcheck="false" autocomplete="off" />
         </div>
-        <h2>Happy Onam!</h2>
-        <p>Access Granted. Loading festival album...</p>
-      </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" required autocomplete="off" />
+        </div>
+
+        <button type="submit" class="btn">Unlock Gallery</button>
+        <div class="status" id="statusMessage"></div>
+      </form>
     </div>
 
-    <footer class="copyright">
-      &copy; le79i
-    </footer>
+    <div class="success" id="successSection">
+      <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="m9 12 2 2 4-4"></path>
+      </svg>
+      <h2>Happy Onam!</h2>
+      <p>Access granted. Loading the festival album&hellip;</p>
+    </div>
+
   </div>
 
-  <script>
-    const form = document.getElementById('authForm');
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const statusMessage = document.getElementById('statusMessage');
-    const loginSection = document.getElementById('loginSection');
-    const successSection = document.getElementById('successSection');
-    const container = document.getElementById('loginContainer');
-    const audio = document.getElementById('bgAudio');
+  <div class="footer">&copy; le79i</div>
+</div>
 
-    // Instant seamless loop
-    audio.addEventListener('timeupdate', () => {
-      if (audio.duration && audio.currentTime >= audio.duration - 0.08) {
-        audio.currentTime = 0;
-        audio.play();
-      }
-    });
+<script>
+  const form = document.getElementById('authForm');
+  const usernameInput = document.getElementById('username');
+  const passwordInput = document.getElementById('password');
+  const statusMessage = document.getElementById('statusMessage');
+  const loginSection = document.getElementById('loginSection');
+  const successSection = document.getElementById('successSection');
+  const card = document.getElementById('loginCard');
+  const audio = document.getElementById('bgAudio');
+  audio.loop = true;
 
-    audio.addEventListener('ended', () => {
-      audio.currentTime = 0;
-      audio.play();
-    });
+  let started = false;
+  function startAudio() {
+    if (started) return;
+    audio.play().then(() => { started = true; }).catch(() => {});
+  }
 
-    // Auto-unlock audio on mobile/hosted browsers on any interaction
-    const unlockAudio = () => {
+  // Play immediately on load.
+  startAudio();
+  window.addEventListener('DOMContentLoaded', startAudio);
+  window.addEventListener('load', startAudio);
+
+  // Some mobile/in-app browsers (Instagram, Facebook, etc.) silently block the
+  // very first play() call before any tap has happened on the page at all.
+  // These listeners are silent and invisible — no button, no prompt — they
+  // just catch the first tap/scroll/keypress anywhere (including on the form
+  // itself) and use it to start the same loop if it hasn't started yet.
+  ['pointerdown', 'touchstart', 'touchend', 'click', 'keydown', 'scroll'].forEach(evt => {
+    document.addEventListener(evt, startAudio, { passive: true });
+  });
+
+  // Resume automatically if an in-app browser pauses media when backgrounded.
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && audio.paused) {
       audio.play().catch(() => {});
-      window.removeEventListener('touchstart', unlockAudio);
-      window.removeEventListener('pointerdown', unlockAudio);
-      window.removeEventListener('keydown', unlockAudio);
-      window.removeEventListener('click', unlockAudio);
-    };
+    }
+  });
 
-    window.addEventListener('DOMContentLoaded', () => {
-      audio.play().catch(() => {
-        window.addEventListener('touchstart', unlockAudio, { once: true });
-        window.addEventListener('pointerdown', unlockAudio, { once: true });
-        window.addEventListener('keydown', unlockAudio, { once: true });
-        window.addEventListener('click', unlockAudio, { once: true });
-      });
-    });
+  // Authentication (admin / admin)
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-    // Authentication (admin / admin)
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const user = usernameInput.value.trim();
-      const pass = passwordInput.value;
+    const user = usernameInput.value.trim();
+    const pass = passwordInput.value;
 
-      if (user === 'admin' && pass === 'admin') {
-        statusMessage.textContent = '';
-        loginSection.style.transition = 'opacity 0.25s ease';
-        loginSection.style.opacity = '0';
-        
-        setTimeout(() => {
-          loginSection.style.display = 'none';
-          successSection.classList.add('active');
-        }, 250);
+    if (user === 'admin' && pass === 'admin') {
+      statusMessage.textContent = '';
+      loginSection.style.transition = 'opacity 0.25s ease';
+      loginSection.style.opacity = '0';
 
-      } else {
-        statusMessage.textContent = 'Invalid credentials';
-        statusMessage.className = 'message error';
-        
-        container.classList.remove('shake');
-        void container.offsetWidth;
-        container.classList.add('shake');
-      }
-    });
-  </script>
+      setTimeout(() => {
+        loginSection.style.display = 'none';
+        successSection.classList.add('active');
+      }, 250);
+
+    } else {
+      statusMessage.textContent = 'Invalid credentials';
+      statusMessage.className = 'status error';
+
+      card.classList.remove('shake');
+      void card.offsetWidth;
+      card.classList.add('shake');
+    }
+  });
+</script>
 </body>
 </html>
